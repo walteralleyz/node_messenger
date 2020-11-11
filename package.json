@@ -1,0 +1,23 @@
+{
+  "name": "node_messenger",
+  "version": "1.0.0",
+  "description": "The API integrated with socket to manager messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "messenger",
+    "chat",
+    "api",
+    "socket",
+    "io"
+  ],
+  "author": "Walter Alleyz",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.1"
+  }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Messenger</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <style>
+        @media only screen and (max-width: 640px) {
+            .column-reverse {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: #feffab;">
+    <div class="container">
+        <div class="row column-reverse">
+            <div id="user-list" class="col-12 col-md-6 my-2" style="overflow-y: auto;">
+                <h3 class="text-info font-weight-bold bg-white text-center p-2">Inicie uma conversa!</h3>
+                <div id="holder"></div>
+            </div>
+
+            <div 
+                id="message-container" 
+                class="col-12 col-md-6 bg-light shadow p-0"
+                style="border: 1px dashed #ccc"
+            >
+                <div class="message-container__header bg-danger d-flex p-2" style="gap: 20px">
+                    <img src='./images/globe.png' style="max-width: 64px;" alt='user-icon' />
+                    <span class="text-light font-weight-bold py-3">Global</span>
+                </div>
+
+                <div id="messages" class="p-2" style="height: calc(80vh - 140px); margin: 10px 0; overflow-y: auto;"></div>
+                
+                <form action="">
+                    <div class="form-group d-flex px-2">
+                        <input class="form-control" id="m" autocomplete="off" style="border-radius: 0;"
+                            placeholder="Escreva sua mensagem" required />
+                        <button class="btn btn-sm btn-success" style="border-radius: 0;">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" tabindex="-1" role="dialog" style="display: block; background-color: rgba(0, 0, 0, 0.7);">
+            <div class="modal-dialog" role="document"
+                style="top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0 0">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="img-container d-flex justify-content-between">
+                            <img class="rounded-circle img-thumbnail border-danger img-selected"
+                                src="./images/batman.png" alt="user-icon" data-icon="batman"
+                                onclick="changeIcon(event);" />
+
+                            <img class="rounded-circle img-thumbnail" src="./images/worker.png" alt="user-icon"
+                                data-icon="worker" onclick="changeIcon(event);" />
+
+                            <img class="rounded-circle img-thumbnail" src="./images/sister.png" alt="user-icon"
+                                data-icon="sister" onclick="changeIcon(event);" />
+
+                            <img class="rounded-circle img-thumbnail" src="./images/ufo.png" alt="user-icon"
+                                data-icon="ufo" onclick="changeIcon(event);" />
+
+                            <img class="rounded-circle img-thumbnail" src="./images/male.png" alt="user-icon"
+                                data-icon="male" onclick="changeIcon(event);" />
+                        </div>
+                        <div class="form-group my-3">
+                            <input id="name" type="text" class="form-control" placeholder="Seu nome. Ex.: Joaquim"
+                                required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick="login(event);">Entrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
