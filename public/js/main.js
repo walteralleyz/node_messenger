@@ -124,7 +124,7 @@ function drawMessage(data) {
     }
 
     message.appendChild(content_holder);
-    message.classList.add('my-2');
+    message.classList.add('my-2', 'message-holder');
 
     document.getElementById('messages').appendChild(message);
 }
